@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--methods you should know, JavaScript Arrays-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--CRUD in JavaScript Arrays-->
+
+    <p id="demo">Placeholder</p>
+
+
+
+    <button onclick="taskAdder()">adding tasks</button>
+    <button onclick="forgotATask()">adding forgotten task</button>
+
+    <script>
+        const schedule = ["Wake up", "Eat", "Give a class", "Go home"];
+        (schedule.indexOf("Eat"));
+        console.log("schedule : " + schedule);
+        console.log("schedulenumber : " + schedule.indexOf("Eat"));
+
+        console.log("popping last : " + schedule.pop())
+        console.log("schedule : " + schedule)
+
+
+
+        document.getElementById("demo").innerHTML = schedule;
+
+        function taskAdder() {
+            schedule.push("day after preparations");
+            document.getElementById("demo").innerHTML = schedule;
+        }
+
+        function forgotATask() {
+            schedule.splice(3, 0, "Eat dinner");
+            document.getElementById("demo").innerHTML = schedule;
+        }
+
+
+        console.log("xxxxxxxxxxxxxxxxxxxx")
+
+        const items = [{
+                name: 'Bike',
+                price: 400
+            },
+            {
+                name: 'TV',
+                price: 500
+            },
+            {
+                name: 'Step',
+                price: 50
+            },
+            {
+                name: 'Phone',
+                price: 150
+            },
+            {
+                name: 'Computer',
+                price: 1500
+            },
+            {
+                name: 'Rent',
+                price: 700
+            },
+            {
+                name: 'Internet',
+                price: 70
+            },
+            {
+                name: 'sofa',
+                price: 400
+            },
+        ]
+        /*usefull methods in JS Arrays*/
+
+        const filteredItems = items.filter((item) => {
+            return item.price <= 300
+        })
+        /*patrick [object, Object]*/
+        console.log("filteredItems : ")
+        console.log(filteredItems)
+
+
+
+        console.log(items)
+
+
+
+        console.log("-----.map()-----")
+        const itemNames = items.map((item) => {
+            return item.name
+        })
+        console.log(itemNames)
+
+
+        console.log("-----.find()-----")
+        const foundItem = items.find((item) => {
+            return item.name === 'Phone'
+        })
+        console.log(foundItem)
+
+        console.log("-----.forEach()-----")
+        const forEach = items.forEach((item) => {
+            console.log(item.name)
+        })
+
+        console.log("-----.cheap()-----")
+        const cheap = items.some((item) => {
+            return item.price <= 100
+        })
+        console.log(cheap)
+
+
+        console.log("-----.every()-----")
+        const allLessThan = items.every((item) => {
+            return item.price <= 1000
+        })
+        console.log(allLessThan)
+
+
+        /*very usefull*/
+        console.log("-----.reduce()-----")
+        const total = items.reduce((currentTotal, item) => {
+            return item.price + currentTotal
+        }, 5000)
+        console.log(total)
+
+
+        console.log("-----.includes()-----")
+        const itemPrice = items.map((item) => {
+            return item.price
+        })
+        /*first a map to show includes*/
+        const includesOneFifty = itemPrice.includes(150)
+        console.log(includesOneFifty)
+    </script>
+
+</body>
+
+</html>
